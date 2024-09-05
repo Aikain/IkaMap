@@ -33,7 +33,7 @@ const WorldMap = ({ selectedIsland, setSelectedIsland }: Props) => {
             {Array.from(Array(100)).map((_, i) => (
                 <div key={i} className={styles.row}>
                     {Array.from(Array(100))
-                        .map((_, j) => getIsland(String(i + 1), String(j + 1)))
+                        .map((_, j) => getIsland(String(j + 1), String(i + 1)))
                         .map((island, j) => (
                             <IslandCell
                                 key={i * 100 + j}
