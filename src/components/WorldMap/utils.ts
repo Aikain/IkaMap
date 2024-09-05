@@ -10,7 +10,7 @@ const parseResource = (resourceNumber: string): LuxuryResource => {
             return 'CRYSTAL_GLASS';
         case '4':
         default:
-            return 'MARBLE';
+            return 'SULPHUR';
     }
 };
 
