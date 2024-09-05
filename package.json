@@ -18,9 +18,5 @@
         "sass-embedded": "^1.78.0",
         "typescript": "^5.5.3",
         "vite": "^5.4.1"
-    },
-    "devDependencies": {
-        "@vuosoft/prettier-config": "^1.1.3"
-    },
-    "prettier": "@vuosoft/prettier-config"
+    }
 }
