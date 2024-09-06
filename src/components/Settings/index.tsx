@@ -1,8 +1,10 @@
 import { ChangeEvent, Dispatch, SetStateAction } from 'react';
 
-import styles from '../../styles/settings.module.scss';
-import { Monument, Resource, Settings as SettingsType } from '../../types.ts';
-import { translateMonument, translateResource } from '../Info/utils.ts';
+import { Monument, Resource, Settings as SettingsType } from '@/types';
+
+import { translateMonument, translateResource } from '@/components/Info/utils';
+
+import styles from '@/styles/settings.module.scss';
 
 interface Props {
     settings: SettingsType;

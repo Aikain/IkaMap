@@ -1,7 +1,8 @@
 import { memo } from 'react';
 
-import styles from '../../styles/map.module.scss';
-import { RichIsland } from '../../types';
+import { RichIsland } from '@/types';
+
+import styles from '@/styles/map.module.scss';
 
 interface Props {
     extraClass?: string;

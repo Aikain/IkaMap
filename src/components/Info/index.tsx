@@ -1,6 +1,8 @@
-import styles from '../../styles/info.module.scss';
-import { RichIsland } from '../../types';
-import { translateMonument, translateResource } from './utils.ts';
+import { RichIsland } from '@/types';
+
+import styles from '@/styles/info.module.scss';
+
+import { translateMonument, translateResource } from './utils';
 
 interface Props {
     island: RichIsland | null;

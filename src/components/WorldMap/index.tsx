@@ -1,7 +1,9 @@
 import { useCallback, useEffect, useState } from 'react';
 
-import styles from '../../styles/map.module.scss';
-import { RichIsland, RichMap, Settings } from '../../types';
+import { RichIsland, RichMap, Settings } from '@/types';
+
+import styles from '@/styles/map.module.scss';
+
 import IslandCell from './IslandCell';
 import { addRichData, parseMapData } from './utils';
 

@@ -1,10 +1,12 @@
 import { useState } from 'react';
 
-import IslandDetails from './components/Info';
-import Settings from './components/Settings';
-import WorldMap from './components/WorldMap';
-import styles from './styles/app.module.scss';
-import { RichIsland, Settings as SettingsType } from './types';
+import { RichIsland, Settings as SettingsType } from '@/types';
+
+import IslandDetails from '@/components/Info';
+import Settings from '@/components/Settings';
+import WorldMap from '@/components/WorldMap';
+
+import styles from '@/styles/app.module.scss';
 
 const App = () => {
     const [selectedIsland, setSelectedIsland] = useState<RichIsland | null>(null);
