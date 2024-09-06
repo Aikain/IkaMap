@@ -3,7 +3,7 @@
   height: calc(min(100vh, 100vw - 200px - 64px));
 
   @media screen and (orientation:portrait) {
-    width: calc(min(100vh - 140px - 32px, 100vw));
+    width: calc(min(100vh - 140px - 32px, 100vw - 17px));
     height: calc(min(100vh - 140px - 32px, 100vw));
   }
 
@@ -17,7 +17,7 @@
       box-sizing: border-box;
 
       @media screen and (orientation: portrait) {
-        width: calc(min((100vh - 140px - 32px) / 100, 1vw));
+        width: calc(min((100vh - 140px - 32px) / 100, (100vw - 17px) / 100));
         height: calc(min((100vh - 140px - 32px) / 100, 1vw));
       }
 
@@ -31,6 +31,18 @@
 
       &.selected {
         border: 1px solid black;
+      }
+
+      &.selectedResource {
+        background-color: gray;
+      }
+
+      &.selectedMonument {
+        background-color: red;
+      }
+
+      &.selectedIslandGroup {
+        background-color: black;
       }
     }
   }

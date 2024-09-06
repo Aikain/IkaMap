@@ -9,10 +9,11 @@ body {
   display: flex;
   flex-direction: row;
 
-  width: 100vw;
-  height: 100vh;
-
   @media screen and (orientation:portrait) {
     flex-direction: column-reverse;
+  }
+
+  .sidePanel {
+    padding: 1rem 2rem;
   }
 }

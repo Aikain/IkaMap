@@ -41,3 +41,11 @@ export type RichIsland = Island & {
 export type RawMap = Record<string, Record<string, RawIsland>>;
 export type ParsedMap = Record<string, Record<string, Island>>;
 export type RichMap = Record<string, Record<string, RichIsland>>;
+
+export type Settings = {
+    highlightResourcesOnlyInSelectedIslandGroup: boolean;
+    highlightMonumentOnlyInSelectedIslandGroup: boolean;
+    selectedResources: Resource[];
+    selectedMonuments: Monument[];
+    selectedIslandGroupSize: number | null;
+};

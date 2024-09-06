@@ -1,17 +1,28 @@
 import { useState } from 'react';
 
 import IslandDetails from './components/Info';
+import Settings from './components/Settings';
 import WorldMap from './components/WorldMap';
 import styles from './styles/app.module.scss';
-import { RichIsland } from './types.ts';
+import { RichIsland, Settings as SettingsType } from './types';
 
 const App = () => {
     const [selectedIsland, setSelectedIsland] = useState<RichIsland | null>(null);
+    const [settings, setSettings] = useState<SettingsType>({
+        highlightResourcesOnlyInSelectedIslandGroup: true,
+        highlightMonumentOnlyInSelectedIslandGroup: true,
+        selectedIslandGroupSize: null,
+        selectedMonuments: [],
+        selectedResources: [],
+    });
 
     return (
         <div className={styles.main}>
-            <WorldMap selectedIsland={selectedIsland} setSelectedIsland={setSelectedIsland} />
-            <IslandDetails island={selectedIsland} />
+            <WorldMap selectedIsland={selectedIsland} setSelectedIsland={setSelectedIsland} settings={settings} />
+            <div className={styles.sidePanel}>
+                <IslandDetails island={selectedIsland} />
+                <Settings settings={settings} setSettings={setSettings} />
+            </div>
         </div>
     );
 };
