@@ -1,53 +1,53 @@
 .map {
-  width: calc(min(100vh, 100vw - 200px - 64px));
-  height: calc(min(100vh, 100vw - 200px - 64px));
+    width: calc(min(100vh, 100vw - 200px - 64px));
+    height: calc(min(100vh, 100vw - 200px - 64px));
 
-  @media screen and (orientation:portrait) {
-    width: calc(min(100vh - 140px - 32px, 100vw - 17px));
-    height: calc(min(100vh - 140px - 32px, 100vw));
-  }
-
-  .row {
-    display: flex;
-    flex-direction: row;
-
-    .cell {
-      width: calc(min(1vh, (100vw - 200px - 64px) / 100));
-      height: calc(min(1vh, (100vw - 200px - 64px) / 100));
-      box-sizing: border-box;
-
-      @media screen and (orientation: portrait) {
-        width: calc(min((100vh - 140px - 32px) / 100, (100vw - 17px) / 100));
-        height: calc(min((100vh - 140px - 32px) / 100, 1vw));
-      }
-
-      &.land {
-        background-color: green;
-      }
-
-      &.water {
-        background-color: blue;
-      }
-
-      &.selected {
-        border: 1px solid black;
-      }
-
-      &.selectedResource {
-        background-color: gray;
-      }
-
-      &.selectedMonument {
-        background-color: red;
-      }
-
-      &.selectedBoth {
-        background-color: pink;
-      }
-
-      &.selectedIslandGroup {
-        background-color: black;
-      }
+    @media screen and (orientation: portrait) {
+        width: calc(min(100vh - 140px - 32px, 100vw - 17px));
+        height: calc(min(100vh - 140px - 32px, 100vw));
     }
-  }
+
+    .row {
+        display: flex;
+        flex-direction: row;
+
+        .cell {
+            width: calc(min(1vh, (100vw - 200px - 64px) / 100));
+            height: calc(min(1vh, (100vw - 200px - 64px) / 100));
+            box-sizing: border-box;
+
+            @media screen and (orientation: portrait) {
+                width: calc(min((100vh - 140px - 32px) / 100, (100vw - 17px) / 100));
+                height: calc(min((100vh - 140px - 32px) / 100, 1vw));
+            }
+
+            &.land {
+                background-color: green;
+            }
+
+            &.water {
+                background-color: blue;
+            }
+
+            &.selected {
+                border: 1px solid black;
+            }
+
+            &.selectedResource {
+                background-color: gray;
+            }
+
+            &.selectedMonument {
+                background-color: red;
+            }
+
+            &.selectedBoth {
+                background-color: pink;
+            }
+
+            &.selectedIslandGroup {
+                background-color: black;
+            }
+        }
+    }
 }

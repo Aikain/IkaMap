@@ -144,7 +144,7 @@ const Settings = ({ settings, setSettings }: Props) => {
                         disabled={settings.selectedMonuments.length === 0 || settings.selectedResources.length === 0}
                     />
                     <label htmlFor='highlight-only-maches-with-both-selected'>
-                        Korosta vain ne, jotka täsmäävät sekä valittuihin resursseihin että valittuihin ihmeisiin 
+                        Korosta vain ne, jotka täsmäävät sekä valittuihin resursseihin että valittuihin ihmeisiin
                     </label>
                 </div>
             </div>
