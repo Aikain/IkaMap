@@ -45,6 +45,7 @@ export type RichMap = Record<string, Record<string, RichIsland>>;
 export type Settings = {
     highlightResourcesOnlyInSelectedIslandGroup: boolean;
     highlightMonumentOnlyInSelectedIslandGroup: boolean;
+    highlightOnlyMachesWithBothSelected: boolean;
     selectedResources: Resource[];
     selectedMonuments: Monument[];
     selectedIslandGroupSize: number | null;

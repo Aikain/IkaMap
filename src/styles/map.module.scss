@@ -41,6 +41,10 @@
         background-color: red;
       }
 
+      &.selectedBoth {
+        background-color: pink;
+      }
+
       &.selectedIslandGroup {
         background-color: black;
       }

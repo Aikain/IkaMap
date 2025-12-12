@@ -33,19 +33,29 @@ const WorldMap = ({ selectedIsland, setSelectedIsland, settings }: Props) => {
 
     const getExtraClass = (island: RichIsland | null) =>
         island
-            ? settings.selectedResources.indexOf(island.resource) !== -1 &&
-              (!settings.highlightResourcesOnlyInSelectedIslandGroup ||
-                  settings.selectedIslandGroupSize === null ||
-                  settings.selectedIslandGroupSize === island.neighborsCount)
-                ? styles.selectedResource
-                : settings.selectedMonuments.indexOf(island.monument) !== -1 &&
-                    (!settings.highlightMonumentOnlyInSelectedIslandGroup ||
+            ? settings.highlightOnlyMachesWithBothSelected &&
+              settings.selectedMonuments.length > 0 &&
+              settings.selectedResources.length > 0
+                ? settings.selectedResources.indexOf(island.resource) !== -1 &&
+                  settings.selectedMonuments.indexOf(island.monument) !== -1 &&
+                  (!settings.highlightResourcesOnlyInSelectedIslandGroup ||
+                      settings.selectedIslandGroupSize === null ||
+                      settings.selectedIslandGroupSize === island.neighborsCount)
+                    ? styles.selectedBoth
+                    : ''
+                : settings.selectedResources.indexOf(island.resource) !== -1 &&
+                    (!settings.highlightResourcesOnlyInSelectedIslandGroup ||
                         settings.selectedIslandGroupSize === null ||
                         settings.selectedIslandGroupSize === island.neighborsCount)
-                  ? styles.selectedMonument
-                  : settings.selectedIslandGroupSize === island.neighborsCount
-                    ? styles.selectedIslandGroup
-                    : ''
+                  ? styles.selectedResource
+                  : settings.selectedMonuments.indexOf(island.monument) !== -1 &&
+                      (!settings.highlightMonumentOnlyInSelectedIslandGroup ||
+                          settings.selectedIslandGroupSize === null ||
+                          settings.selectedIslandGroupSize === island.neighborsCount)
+                    ? styles.selectedMonument
+                    : settings.selectedIslandGroupSize === island.neighborsCount
+                      ? styles.selectedIslandGroup
+                      : ''
             : '';
 
     return (
