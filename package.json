@@ -1,26 +1,27 @@
 {
     "name": "ikamap",
     "version": "0.1.0",
-    "packageManager": "yarn@4.4.1",
+    "packageManager": "yarn@4.12.0",
     "private": true,
     "scripts": {
         "dev": "vite",
         "build": "tsc -b && vite build",
-        "preview": "vite preview"
+        "preview": "vite preview",
+        "format": "prettier --write '**/*.{scss,html,json,md,ts,tsx}'"
     },
     "dependencies": {
-        "@types/react": "^18.3.3",
-        "@types/react-dom": "^18.3.0",
-        "@vitejs/plugin-react": "^4.3.1",
-        "react": "^18.3.1",
-        "react-dom": "^18.3.1",
-        "sass-embedded": "^1.78.0",
-        "typescript": "^5.5.3",
-        "vite": "^5.4.1",
-        "vite-tsconfig-paths": "^5.0.1"
+        "@types/react": "^19.2.7",
+        "@types/react-dom": "^19.2.3",
+        "@vitejs/plugin-react": "^5.1.2",
+        "react": "^19.2.1",
+        "react-dom": "^19.2.1",
+        "sass-embedded": "^1.93.3",
+        "typescript": "^5.9.3",
+        "vite": "^7.2.7",
+        "vite-tsconfig-paths": "^5.1.4"
     },
     "devDependencies": {
-        "@trivago/prettier-plugin-sort-imports": "^4.3.0",
-        "prettier": "^3.3.3"
+        "@trivago/prettier-plugin-sort-imports": "^6.0.0",
+        "prettier": "^3.7.4"
     }
 }

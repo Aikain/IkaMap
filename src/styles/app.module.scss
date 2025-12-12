@@ -1,19 +1,19 @@
 body {
-  margin: 0;
-  padding: 0;
+    margin: 0;
+    padding: 0;
 
-  background-color: #e2c696;
+    background-color: #e2c696;
 }
 
 .main {
-  display: flex;
-  flex-direction: row;
+    display: flex;
+    flex-direction: row;
 
-  @media screen and (orientation:portrait) {
-    flex-direction: column-reverse;
-  }
+    @media screen and (orientation: portrait) {
+        flex-direction: column-reverse;
+    }
 
-  .sidePanel {
-    padding: 1rem 2rem;
-  }
+    .sidePanel {
+        padding: 1rem 2rem;
+    }
 }

@@ -50,6 +50,12 @@ const Settings = ({ settings, setSettings }: Props) => {
             selectedIslandGroupSize: parseInt(e.target.value) >= 8 ? parseInt(e.target.value) : null,
         }));
 
+    const handleHighlightOnlyMachesWithBothSelectedToggle = () =>
+        setSettings((settings) => ({
+            ...settings,
+            highlightOnlyMachesWithBothSelected: !settings.highlightOnlyMachesWithBothSelected,
+        }));
+
     return (
         <div className={styles.settings}>
             <div>
@@ -125,6 +131,22 @@ const Settings = ({ settings, setSettings }: Props) => {
                     onChange={handleIslandGroupSizeChange}
                 />
                 <span>Valittu koko: {settings.selectedIslandGroupSize ?? '-'}</span>
+            </div>
+
+            <div>
+                <h3>Muut asetukset</h3>
+                <div className={styles.highlightOption}>
+                    <input
+                        type='checkbox'
+                        id='highlight-only-maches-with-both-selected'
+                        checked={settings.highlightOnlyMachesWithBothSelected}
+                        onChange={handleHighlightOnlyMachesWithBothSelectedToggle}
+                        disabled={settings.selectedMonuments.length === 0 || settings.selectedResources.length === 0}
+                    />
+                    <label htmlFor='highlight-only-maches-with-both-selected'>
+                        Korosta vain ne, jotka täsmäävät sekä valittuihin resursseihin että valittuihin ihmeisiin
+                    </label>
+                </div>
             </div>
         </div>
     );

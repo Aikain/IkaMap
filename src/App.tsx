@@ -13,6 +13,7 @@ const App = () => {
     const [settings, setSettings] = useState<SettingsType>({
         highlightResourcesOnlyInSelectedIslandGroup: true,
         highlightMonumentOnlyInSelectedIslandGroup: true,
+        highlightOnlyMachesWithBothSelected: false,
         selectedIslandGroupSize: null,
         selectedMonuments: [],
         selectedResources: [],
