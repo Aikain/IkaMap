@@ -12,27 +12,27 @@
         "format": "prettier --write '**/*.{scss,html,json,md,ts,tsx}'"
     },
     "dependencies": {
-        "@types/react": "^19.2.7",
+        "@types/react": "^19.2.14",
         "@types/react-dom": "^19.2.3",
-        "@vitejs/plugin-react": "^5.1.2",
-        "react": "^19.2.1",
-        "react-dom": "^19.2.1",
-        "sass-embedded": "^1.93.3",
+        "@vitejs/plugin-react": "^5.1.4",
+        "react": "^19.2.4",
+        "react-dom": "^19.2.4",
+        "sass-embedded": "^1.97.3",
         "typescript": "^5.9.3",
-        "vite": "^7.2.7",
-        "vite-tsconfig-paths": "^5.1.4"
+        "vite": "^7.3.1",
+        "vite-tsconfig-paths": "^6.1.1"
     },
     "devDependencies": {
         "@eslint/js": "^9.39.2",
         "@microsoft/eslint-formatter-sarif": "^3.1.0",
-        "@trivago/prettier-plugin-sort-imports": "^6.0.0",
+        "@trivago/prettier-plugin-sort-imports": "^6.0.2",
         "eslint": "^9.39.2",
         "eslint-config-prettier": "^10.1.8",
         "eslint-plugin-prettier": "^5.5.5",
         "eslint-plugin-react": "^7.37.5",
         "eslint-plugin-react-hooks": "^7.0.1",
         "eslint-plugin-react-refresh": "^0.5.0",
-        "prettier": "^3.7.4",
+        "prettier": "^3.8.1",
         "typescript-eslint": "^8.56.0"
     }
 }
