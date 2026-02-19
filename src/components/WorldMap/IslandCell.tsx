@@ -11,6 +11,7 @@ interface Props {
     setSelectedIsland: (island: RichIsland | null) => void;
 }
 
+// eslint-disable-next-line react/display-name
 const IslandCell = memo(
     ({ extraClass, island, selected, setSelectedIsland }: Props) => {
         const handleMouseEnter = () => (island ? setSelectedIsland(island) : setSelectedIsland(null));

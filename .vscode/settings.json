@@ -1,5 +1,8 @@
 {
     "editor.formatOnSave": true,
+    "eslint.options": {
+        "flags": ["unstable_native_nodejs_ts_config"]
+    },
     "files.exclude": {
         "**/.yarn": true,
         "**/node_modules": true,

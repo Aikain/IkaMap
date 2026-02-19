@@ -25,12 +25,12 @@ export type RawIsland = [
     null, // string, // Red vs Blue
 ];
 
-export type Island = {
+export interface Island {
     id: string;
     name: string;
     resource: LuxuryResource;
     monument: Monument;
-};
+}
 
 export type RichIsland = Island & {
     x: string;
@@ -42,11 +42,11 @@ export type RawMap = Record<string, Record<string, RawIsland>>;
 export type ParsedMap = Record<string, Record<string, Island>>;
 export type RichMap = Record<string, Record<string, RichIsland>>;
 
-export type Settings = {
+export interface Settings {
     highlightResourcesOnlyInSelectedIslandGroup: boolean;
     highlightMonumentOnlyInSelectedIslandGroup: boolean;
     highlightOnlyMachesWithBothSelected: boolean;
     selectedResources: Resource[];
     selectedMonuments: Monument[];
     selectedIslandGroupSize: number | null;
-};
+}
