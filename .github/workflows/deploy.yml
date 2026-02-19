@@ -28,17 +28,15 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v6
         with:
-          node-version: 22.x
+          node-version: 24
+          cache: yarn
+          cache-dependency-path: yarn.lock
 
-      - name: Install
-        uses: borales/actions-yarn@v5
-        with:
-          cmd: install
+      - name: Install dependencies
+        run: yarn install
 
-      - name: Build
-        uses: borales/actions-yarn@v5
-        with:
-          cmd: build
+      - name: Run build
+        run: yarn build
 
       - name: Upload production-ready build files
         uses: actions/upload-pages-artifact@v4
