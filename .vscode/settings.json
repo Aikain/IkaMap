@@ -12,9 +12,6 @@
         "**/node_modules": true,
         "**/yarn.lock": true
     },
-    "yaml.schemas": {
-        "https://www.schemastore.org/github-funding.json": ".github/workflows/FUNDING.yml"
-    },
     "[html]": {
         "editor.defaultFormatter": "esbenp.prettier-vscode"
     },
