@@ -1,10 +1,12 @@
 import { ChangeEvent, Dispatch, SetStateAction } from 'react';
 
-import { Monument, Resource, Settings as SettingsType } from '@/types';
+import { LuxuryResource, Monument, Resource, Settings as SettingsType } from '@/types';
 
 import { translateMonument, translateResource } from '@/components/Info/utils';
 
 import styles from '@/styles/settings.module.scss';
+
+import { LUXURY_RESOURCE_COUNTS } from './constants';
 
 interface Props {
     settings: SettingsType;
@@ -48,6 +50,15 @@ const Settings = ({ settings, setSettings }: Props) => {
         setSettings((settings) => ({
             ...settings,
             selectedIslandGroupSize: parseInt(e.target.value) >= 8 ? parseInt(e.target.value) : null,
+        }));
+
+    const handleMinimumResourceCountSizeChange = (e: ChangeEvent<HTMLInputElement>, resource: LuxuryResource) =>
+        setSettings((settings) => ({
+            ...settings,
+            minimumCounts: {
+                ...settings.minimumCounts,
+                [resource]: parseInt(e.target.value),
+            },
         }));
 
     const handleHighlightOnlyMachesWithBothSelectedToggle = () =>
@@ -122,7 +133,7 @@ const Settings = ({ settings, setSettings }: Props) => {
             </div>
 
             <div>
-                <h3>Korosta saarirykelmä koon mukaan</h3>
+                <h3>Korosta saarirykelmä mukaan</h3>
                 <input
                     type='range'
                     min='7'
@@ -131,6 +142,26 @@ const Settings = ({ settings, setSettings }: Props) => {
                     onChange={handleIslandGroupSizeChange}
                 />
                 <span>Valittu koko: {settings.selectedIslandGroupSize ?? '-'}</span>
+                <div className={styles.minimumCounts}>
+                    {(['WINE', 'MARBLE', 'CRYSTAL_GLASS', 'SULPHUR'] as LuxuryResource[]).map((resource) => (
+                        <div key={resource} className={styles.highlightRadioGroup}>
+                            {LUXURY_RESOURCE_COUNTS[resource].map((count) => (
+                                <div key={count} className={styles.highlightRadio}>
+                                    <input
+                                        type='radio'
+                                        id={`highlight-minimum-${count}-${resource}`}
+                                        value={count}
+                                        checked={(settings.minimumCounts[resource] ?? 0) === count}
+                                        onChange={(e) => handleMinimumResourceCountSizeChange(e, resource)}
+                                    />
+                                    <label htmlFor={`highlight-minimum-${count}-${resource}`}>
+                                        Vähintään: {count} x {translateResource(resource)}
+                                    </label>
+                                </div>
+                            ))}
+                        </div>
+                    ))}
+                </div>
             </div>
 
             <div>

@@ -57,45 +57,64 @@ export const parseMapData = (data: RawMap): ParsedMap =>
 
 const getIsland = (map: ParsedMap, x: string, y: string) => (map && map[x] ? map[x][y] : null);
 
-const getNeighboursCount = (map: ParsedMap, x: string, y: string): number => {
+const getNeighboursData = (
+    map: ParsedMap,
+    x: string,
+    y: string,
+): Pick<RichIsland, 'neighborsCount' | 'neighborsResourceCounts'> => {
+    const neighborsResourceCounts: RichIsland['neighborsResourceCounts'] = {
+        WINE: 0,
+        MARBLE: 0,
+        CRYSTAL_GLASS: 0,
+        SULPHUR: 0,
+    };
+
     const island = getIsland(map, x, y);
-    if (!island) return -1;
+    if (!island) return { neighborsCount: -1, neighborsResourceCounts: neighborsResourceCounts };
 
     const checked: string[] = [island.id];
+    neighborsResourceCounts[island.resource] += 1;
 
     const innerCheck = (x: string, y: string) => {
         let tmp = getIsland(map, String(parseInt(x) - 1), y);
         if (tmp && checked.indexOf(tmp.id) === -1) {
             checked.push(tmp.id);
+            neighborsResourceCounts[tmp.resource] += 1;
             innerCheck(String(parseInt(x) - 1), y);
         }
         tmp = getIsland(map, String(parseInt(x) + 1), y);
         if (tmp && checked.indexOf(tmp.id) === -1) {
             checked.push(tmp.id);
+            neighborsResourceCounts[tmp.resource] += 1;
             innerCheck(String(parseInt(x) + 1), y);
         }
         tmp = getIsland(map, x, String(parseInt(y) - 1));
         if (tmp && checked.indexOf(tmp.id) === -1) {
             checked.push(tmp.id);
+            neighborsResourceCounts[tmp.resource] += 1;
             innerCheck(x, String(parseInt(y) - 1));
         }
         tmp = getIsland(map, x, String(parseInt(y) + 1));
         if (tmp && checked.indexOf(tmp.id) === -1) {
             checked.push(tmp.id);
+            neighborsResourceCounts[tmp.resource] += 1;
             innerCheck(x, String(parseInt(y) + 1));
         }
     };
 
     innerCheck(x, y);
 
-    return checked.length;
+    return {
+        neighborsCount: checked.length,
+        neighborsResourceCounts,
+    };
 };
 
 const addRichIslandData = (island: Island, map: ParsedMap, x: string, y: string): RichIsland => ({
     ...island,
     x,
     y,
-    neighborsCount: getNeighboursCount(map, x, y),
+    ...getNeighboursData(map, x, y),
 });
 
 export const addRichData = (map: ParsedMap): RichMap =>

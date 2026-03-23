@@ -36,6 +36,7 @@ export type RichIsland = Island & {
     x: string;
     y: string;
     neighborsCount: number;
+    neighborsResourceCounts: Record<LuxuryResource, number>;
 };
 
 export type RawMap = Record<string, Record<string, RawIsland>>;
@@ -49,4 +50,5 @@ export interface Settings {
     selectedResources: Resource[];
     selectedMonuments: Monument[];
     selectedIslandGroupSize: number | null;
+    minimumCounts: Record<LuxuryResource, number>;
 }

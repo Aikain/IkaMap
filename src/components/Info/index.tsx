@@ -11,10 +11,8 @@ interface Props {
 const IslandDetails = ({ island }: Props) => (
     <div className={styles.info}>
         <h2>
-            [{island?.x ?? 'X'}:{island?.y ?? 'Y'}] {island?.name ?? '-'}
+            {`[${island?.x ?? 'X'}:${island?.y ?? 'Y'}] ${island?.name ?? '-'} ${island ? ` - ${translateResource(island.resource)}` : ''} ${island ? ` - ${translateMonument(island.monument)}` : ''}`}
         </h2>
-        <span>Resurssi: {island ? translateResource(island.resource) : '-'}</span>
-        <span>Ihme: {island ? translateMonument(island.monument) : '-'}</span>
     </div>
 );
 
