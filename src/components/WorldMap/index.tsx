@@ -4,6 +4,7 @@ import { RichIsland, RichMap, Settings } from '@/types';
 
 import styles from '@/styles/map.module.scss';
 
+import { LUXURY_RESOURCE_COUNTS } from '../Settings/constants';
 import IslandCell from './IslandCell';
 import { addRichData, parseMapData } from './utils';
 
@@ -46,6 +47,13 @@ const WorldMap = ({ selectedIsland, setSelectedIsland, settings }: Props) => {
         settings.minimumCounts['CRYSTAL_GLASS'] <= island.neighborsResourceCounts.CRYSTAL_GLASS &&
         settings.minimumCounts['SULPHUR'] <= island.neighborsResourceCounts.SULPHUR;
 
+    const isIslandSettingsSelected = (): boolean =>
+        settings.selectedIslandGroupSize !== null ||
+        settings.minimumCounts['WINE'] > LUXURY_RESOURCE_COUNTS['WINE'][0] ||
+        settings.minimumCounts['MARBLE'] > LUXURY_RESOURCE_COUNTS['MARBLE'][0] ||
+        settings.minimumCounts['CRYSTAL_GLASS'] > LUXURY_RESOURCE_COUNTS['CRYSTAL_GLASS'][0] ||
+        settings.minimumCounts['SULPHUR'] > LUXURY_RESOURCE_COUNTS['SULPHUR'][0];
+
     const getExtraClass = (island: RichIsland | null) =>
         island
             ? settings.highlightOnlyMachesWithBothSelected
@@ -56,7 +64,9 @@ const WorldMap = ({ selectedIsland, setSelectedIsland, settings }: Props) => {
                   ? styles.selectedMonument
                   : isValidResource(island)
                     ? styles.selectedResource
-                    : ''
+                    : isIslandSettingsSelected() && isValidIsland(island)
+                      ? styles.selectedIslandGroup
+                      : ''
             : '';
 
     return (
