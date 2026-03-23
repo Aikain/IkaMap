@@ -9,4 +9,15 @@
     .highlightOption {
         margin-top: 1rem;
     }
+
+    .highlightRadioGroup {
+        margin-top: 1rem;
+    }
+
+    .minimumCounts {
+        display: flex;
+        flex-direction: row;
+        gap: 2rem;
+        flex-wrap: wrap;
+    }
 }

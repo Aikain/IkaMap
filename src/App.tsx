@@ -8,6 +8,8 @@ import WorldMap from '@/components/WorldMap';
 
 import styles from '@/styles/app.module.scss';
 
+import { LUXURY_RESOURCE_COUNTS } from './components/Settings/constants';
+
 const App = () => {
     const [selectedIsland, setSelectedIsland] = useState<RichIsland | null>(null);
     const [settings, setSettings] = useState<SettingsType>({
@@ -17,6 +19,12 @@ const App = () => {
         selectedIslandGroupSize: null,
         selectedMonuments: [],
         selectedResources: [],
+        minimumCounts: {
+            WINE: LUXURY_RESOURCE_COUNTS['WINE'][0],
+            MARBLE: LUXURY_RESOURCE_COUNTS['MARBLE'][0],
+            CRYSTAL_GLASS: LUXURY_RESOURCE_COUNTS['CRYSTAL_GLASS'][0],
+            SULPHUR: LUXURY_RESOURCE_COUNTS['SULPHUR'][0],
+        },
     });
 
     return (

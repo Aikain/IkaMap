@@ -31,31 +31,32 @@ const WorldMap = ({ selectedIsland, setSelectedIsland, settings }: Props) => {
         [worldMap],
     );
 
+    const isValidMonument = (island: RichIsland): boolean =>
+        settings.selectedMonuments.indexOf(island.monument) !== -1 &&
+        (!settings.highlightMonumentOnlyInSelectedIslandGroup || isValidIsland(island));
+
+    const isValidResource = (island: RichIsland): boolean =>
+        settings.selectedResources.indexOf(island.resource) !== -1 &&
+        (!settings.highlightResourcesOnlyInSelectedIslandGroup || isValidIsland(island));
+
+    const isValidIsland = (island: RichIsland): boolean =>
+        (settings.selectedIslandGroupSize === null || settings.selectedIslandGroupSize === island.neighborsCount) &&
+        settings.minimumCounts['WINE'] <= island.neighborsResourceCounts.WINE &&
+        settings.minimumCounts['MARBLE'] <= island.neighborsResourceCounts.MARBLE &&
+        settings.minimumCounts['CRYSTAL_GLASS'] <= island.neighborsResourceCounts.CRYSTAL_GLASS &&
+        settings.minimumCounts['SULPHUR'] <= island.neighborsResourceCounts.SULPHUR;
+
     const getExtraClass = (island: RichIsland | null) =>
         island
-            ? settings.highlightOnlyMachesWithBothSelected &&
-              settings.selectedMonuments.length > 0 &&
-              settings.selectedResources.length > 0
-                ? settings.selectedResources.indexOf(island.resource) !== -1 &&
-                  settings.selectedMonuments.indexOf(island.monument) !== -1 &&
-                  (!settings.highlightResourcesOnlyInSelectedIslandGroup ||
-                      settings.selectedIslandGroupSize === null ||
-                      settings.selectedIslandGroupSize === island.neighborsCount)
+            ? settings.highlightOnlyMachesWithBothSelected
+                ? isValidMonument(island) && isValidResource(island)
                     ? styles.selectedBoth
                     : ''
-                : settings.selectedResources.indexOf(island.resource) !== -1 &&
-                    (!settings.highlightResourcesOnlyInSelectedIslandGroup ||
-                        settings.selectedIslandGroupSize === null ||
-                        settings.selectedIslandGroupSize === island.neighborsCount)
-                  ? styles.selectedResource
-                  : settings.selectedMonuments.indexOf(island.monument) !== -1 &&
-                      (!settings.highlightMonumentOnlyInSelectedIslandGroup ||
-                          settings.selectedIslandGroupSize === null ||
-                          settings.selectedIslandGroupSize === island.neighborsCount)
-                    ? styles.selectedMonument
-                    : settings.selectedIslandGroupSize === island.neighborsCount
-                      ? styles.selectedIslandGroup
-                      : ''
+                : isValidMonument(island)
+                  ? styles.selectedMonument
+                  : isValidResource(island)
+                    ? styles.selectedResource
+                    : ''
             : '';
 
     return (
