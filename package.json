@@ -1,7 +1,7 @@
 {
     "name": "ikamap",
     "version": "0.1.0",
-    "packageManager": "yarn@4.13.0",
+    "packageManager": "yarn@4.17.1",
     "private": true,
     "scripts": {
         "dev": "vite",
