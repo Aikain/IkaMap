@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-import { RichIsland, Settings as SettingsType } from '@/types';
+import type { RichIsland, Settings as SettingsType } from '@/types';
 
 import IslandDetails from '@/components/Info';
 import Settings from '@/components/Settings';

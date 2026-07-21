@@ -1,6 +1,6 @@
 import { memo } from 'react';
 
-import { RichIsland } from '@/types';
+import type { RichIsland } from '@/types';
 
 import styles from '@/styles/map.module.scss';
 
