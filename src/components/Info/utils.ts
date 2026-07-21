@@ -1,4 +1,4 @@
-import { Monument, Resource } from '@/types';
+import type { Monument, Resource } from '@/types';
 
 export const translateMonument = (monument: Monument): string => {
     switch (monument) {

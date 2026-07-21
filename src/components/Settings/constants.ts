@@ -1,4 +1,4 @@
-import { LuxuryResource } from '@/types';
+import type { LuxuryResource } from '@/types';
 
 export const LUXURY_RESOURCE_COUNTS: Record<LuxuryResource, number[]> = {
     WINE: [1, 2, 3, 4, 5],

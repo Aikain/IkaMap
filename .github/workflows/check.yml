@@ -64,5 +64,5 @@ jobs:
       - name: Install dependencies
         run: yarn install
 
-      - name: Run ts:check
-        run: yarn ts:check
+      - name: Run check-types
+        run: yarn check-types

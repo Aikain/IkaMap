@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useState } from 'react';
 
-import { RichIsland, RichMap, Settings } from '@/types';
+import type { RichIsland, RichMap, Settings } from '@/types';
 
 import styles from '@/styles/map.module.scss';
 

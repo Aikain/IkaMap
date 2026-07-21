@@ -1,4 +1,4 @@
-import { RichIsland } from '@/types';
+import type { RichIsland } from '@/types';
 
 import styles from '@/styles/info.module.scss';
 

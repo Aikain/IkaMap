@@ -1,6 +1,6 @@
-import { ChangeEvent, Dispatch, SetStateAction } from 'react';
+import type { ChangeEvent, Dispatch, SetStateAction } from 'react';
 
-import { LuxuryResource, Monument, Resource, Settings as SettingsType } from '@/types';
+import type { LuxuryResource, Monument, Resource, Settings as SettingsType } from '@/types';
 
 import { translateMonument, translateResource } from '@/components/Info/utils';
 

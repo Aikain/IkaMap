@@ -1,4 +1,4 @@
-import { Island, LuxuryResource, Monument, ParsedMap, RawIsland, RawMap, RichIsland, RichMap } from '@/types';
+import type { Island, LuxuryResource, Monument, ParsedMap, RawIsland, RawMap, RichIsland, RichMap } from '@/types';
 
 const parseResource = (resourceNumber: string): LuxuryResource => {
     switch (resourceNumber) {
